@@ -1,92 +1,56 @@
-# Dedalit - Red Thread Travel Planner (RedWire)
+# Welcome to your Expo app 👋
 
-A mobile and web application built with Expo (React Native) and Supabase that allows users to plan travel itineraries by tracing a continuous red thread across the globe between their stops.
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
----
+## Get started
 
-## Project Overview
+1. Install dependencies
 
-Guided by the Dedalit team, this app transforms travel planning into a seamless, visual experience:
-* Global Connection: Link your destinations using a dynamic red thread on an interactive map.
-* Stop Management: Add, reorder, and customize every stop along your journey.
-* Cloud Database: Real-time data sync with Supabase for trips and user data.
-* Cross-Platform: Runs smoothly on Android, iOS, and Web.
+   ```bash
+   npm install
+   ```
 
----
+2. Start the app
 
-## Tech Stack
+   ```bash
+   npx expo start
+   ```
 
-* Framework: Expo (React Native & Expo Router)
-* Language: TypeScript / JavaScript
-* Backend & Database: Supabase (PostgreSQL)
-* Maps & Geocoding: OpenStreetMap & Nominatim API
-* State & Local Storage: React Native Async Storage
-* Design & Prototyping: Figma
+In the output, you'll find options to open the app in a
 
----
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-## Prerequisites
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-Before getting started, make sure you have installed:
-* Node.js (LTS version recommended)
-* Git
-* Expo Go app on your smartphone (available on iOS App Store and Google Play Store)
+## Get a fresh project
 
----
-
-## Getting Started
-
-### 1. Clone the repository
-```bash
-git clone [https://github.com/Dedalit/RedWire.git](https://github.com/Dedalit/RedWire.git)
-cd RedWire
-
-```
-
-### 2. Install dependencies
+When you're ready, run:
 
 ```bash
-npm install
-
+npm run reset-project
 ```
 
-### 3. Environment Variables Setup
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-Create a `.env` file in the root folder based on `.env.example` and add your Supabase credentials:
+### Other setup steps
 
-```env
-EXPO_PUBLIC_SUPABASE_URL=[https://your-project.supabase.co](https://your-project.supabase.co)
-EXPO_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
+- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
+- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
 
-```
+## Learn more
 
-### 4. Start the Expo development server
+To learn more about developing your project with Expo, look at the following resources:
 
-```bash
-npx expo start -c
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-```
+## Join the community
 
-#### How to run:
+Join our community of developers creating universal apps.
 
-* On Smartphone (Local/Hotspot): Scan the QR Code displayed in the terminal using Expo Go (Android) or the Camera app (iOS).
-* On Smartphone (Tunnel / Remote): Run `npx expo start --tunnel` to share the preview with remote team members.
-* On Web: Press `w` in the terminal to open the app in your browser.
-* On Emulator: Press `a` for Android or `i` for iOS (if configured).
-
----
-
-## Useful Commands & Git Workflow
-
-* `npx expo start -c` - Starts the Metro Bundler clearing cache.
-* `npx expo start --tunnel` - Starts Expo using a public tunnel for remote testing.
-* `npx expo lint` - Checks code style and formatting quality.
-* `git pull origin main --rebase` - Pulls latest changes smoothly before pushing.
-
----
-
-Developed by Dedalit.
-
-```
-
-```
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.

@@ -1,5 +1,6 @@
+import { Image } from 'expo-image';
 import { SymbolView } from 'expo-symbols';
-import { Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Platform, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ExternalLink } from '@/components/external-link';
@@ -79,33 +80,20 @@ export default function TabTwoScreen() {
                 press <ThemedText type="smallBold">w</ThemedText> in the terminal running this
                 project.
               </ThemedText>
-              <View style={styles.platformGrid}>
-                <ThemedView type="backgroundSelected" style={styles.platformChip}>
-                  <ThemedText type="smallBold">iOS</ThemedText>
-                </ThemedView>
-                <ThemedView type="backgroundSelected" style={styles.platformChip}>
-                  <ThemedText type="smallBold">Android</ThemedText>
-                </ThemedView>
-                <ThemedView type="backgroundSelected" style={styles.platformChip}>
-                  <ThemedText type="smallBold">Web</ThemedText>
-                </ThemedView>
-              </View>
+              <Image
+                source={require('@/assets/images/tutorial-web.png')}
+                style={styles.imageTutorial}
+              />
             </ThemedView>
           </Collapsible>
 
-          <Collapsible title="Reusable shapes">
+          <Collapsible title="Images">
             <ThemedText type="small">
-              This version keeps the UI asset-free by building its visuals from native views and
-              text instead of bundled PNG files.
+              For static images, you can use the <ThemedText type="code">@2x</ThemedText> and{' '}
+              <ThemedText type="code">@3x</ThemedText> suffixes to provide files for different
+              screen densities.
             </ThemedText>
-            <ThemedView type="backgroundElement" style={styles.assetFreeBadge}>
-              <ThemedText type="smallBold" style={styles.assetFreeMark}>
-                RW
-              </ThemedText>
-              <ThemedText type="code" themeColor="textSecondary">
-                no external images required
-              </ThemedText>
-            </ThemedView>
+            <Image source={require('@/assets/images/react-logo.png')} style={styles.imageReact} />
             <ExternalLink href="https://reactnative.dev/docs/images">
               <ThemedText type="linkPrimary">Learn more</ThemedText>
             </ExternalLink>
@@ -177,30 +165,16 @@ const styles = StyleSheet.create({
   },
   collapsibleContent: {
     alignItems: 'center',
-    gap: Spacing.three,
   },
-  platformGrid: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-  },
-  platformChip: {
-    minWidth: 88,
-    paddingVertical: Spacing.two,
-    paddingHorizontal: Spacing.three,
-    borderRadius: Spacing.four,
-    alignItems: 'center',
-  },
-  assetFreeBadge: {
-    alignSelf: 'center',
+  imageTutorial: {
     width: '100%',
-    padding: Spacing.four,
-    borderRadius: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.one,
+    aspectRatio: 296 / 171,
+    borderRadius: Spacing.three,
+    marginTop: Spacing.two,
   },
-  assetFreeMark: {
-    letterSpacing: 1.2,
+  imageReact: {
+    width: 100,
+    height: 100,
+    alignSelf: 'center',
   },
 });

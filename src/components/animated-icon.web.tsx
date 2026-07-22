@@ -1,5 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native';
-import Animated, { Easing, Keyframe } from 'react-native-reanimated';
+import { Image } from 'expo-image';
+import { StyleSheet, View } from 'react-native';
+import Animated, { Keyframe, Easing } from 'react-native-reanimated';
+
+import classes from './animated-icon.module.css';
 const DURATION = 300;
 
 export function AnimatedSplashOverlay() {
@@ -52,20 +55,18 @@ const glowKeyframe = new Keyframe({
 });
 
 export function AnimatedIcon() {
-  const icon = (
-    <View style={styles.logoMark}>
-      <Text style={styles.logoText}>RW</Text>
-    </View>
-  );
-
   return (
     <View style={styles.iconContainer}>
-      <Animated.View entering={glowKeyframe.duration(60 * 1000 * 4)} style={styles.glow} />
+      <Animated.View entering={glowKeyframe.duration(60 * 1000 * 4)} style={styles.glow}>
+        <Image style={styles.glow} source={require('@/assets/images/logo-glow.png')} />
+      </Animated.View>
 
-      <Animated.View style={styles.background} entering={keyframe.duration(DURATION)} />
+      <Animated.View style={styles.background} entering={keyframe.duration(DURATION)}>
+        <div className={classes.expoLogoBackground} />
+      </Animated.View>
 
       <Animated.View style={styles.imageContainer} entering={logoKeyframe.duration(DURATION)}>
-        {icon}
+        <Image style={styles.image} source={require('@/assets/images/expo-logo.png')} />
       </Animated.View>
     </View>
   );
@@ -87,8 +88,6 @@ const styles = StyleSheet.create({
     width: 201,
     height: 201,
     position: 'absolute',
-    borderRadius: 201,
-    backgroundColor: 'rgba(255, 255, 255, 0.14)',
   },
   iconContainer: {
     justifyContent: 'center',
@@ -105,25 +104,5 @@ const styles = StyleSheet.create({
     width: 128,
     height: 128,
     position: 'absolute',
-    borderRadius: 40,
-    backgroundColor: '#0274DF',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  logoMark: {
-    width: 76,
-    height: 71,
-    borderRadius: 22,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.16)',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.35)',
-  },
-  logoText: {
-    color: '#FFFFFF',
-    fontSize: 20,
-    fontWeight: '800',
-    letterSpacing: 1.5,
   },
 });
