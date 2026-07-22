@@ -1,6 +1,5 @@
 import { version } from 'expo/package.json';
-import { Image } from 'expo-image';
-import { useColorScheme, StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { ThemedText } from './themed-text';
 import { ThemedView } from './themed-view';
@@ -8,21 +7,16 @@ import { ThemedView } from './themed-view';
 import { Spacing } from '@/constants/theme';
 
 export function WebBadge() {
-  const scheme = useColorScheme();
-
   return (
     <ThemedView style={styles.container}>
       <ThemedText type="code" themeColor="textSecondary" style={styles.versionText}>
         v{version}
       </ThemedText>
-      <Image
-        source={
-          scheme === 'dark'
-            ? require('@/assets/images/expo-badge-white.png')
-            : require('@/assets/images/expo-badge.png')
-        }
-        style={styles.badgeImage}
-      />
+      <View style={styles.badgePill}>
+        <ThemedText type="smallBold" style={styles.badgeText}>
+          Asset-free web
+        </ThemedText>
+      </View>
     </ThemedView>
   );
 }
@@ -36,8 +30,14 @@ const styles = StyleSheet.create({
   versionText: {
     textAlign: 'center',
   },
-  badgeImage: {
-    width: 123,
-    aspectRatio: 123 / 24,
+  badgePill: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(96, 100, 108, 0.2)',
+  },
+  badgeText: {
+    letterSpacing: 0.4,
   },
 });
